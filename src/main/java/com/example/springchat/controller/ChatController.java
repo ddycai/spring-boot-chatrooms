@@ -38,7 +38,6 @@ public class ChatController {
       messagingTemplate.convertAndSend(format("/channel/%s", currentRoomId), leaveMessage);
     }
     headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
-    headerAccessor.getSessionAttributes().put("room_id", roomId);
     messagingTemplate.convertAndSend(format("/channel/%s", roomId), chatMessage);
   }
 }
